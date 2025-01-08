@@ -1,0 +1,24 @@
+# Database configuration
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/stockmanager
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 30000
+      pool-name: PostgresConnectionPool
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+        show-sql: false
+
+# Log configuration
+logging:
+  level:
+    root: DEBUG
