@@ -7,6 +7,7 @@ import org.stockmanager.repository.StockRepository;
 
 @Service
 public class StockService {
+
     private final StockRepository stockRepository;
 
     public StockService(StockRepository stockRepository) {

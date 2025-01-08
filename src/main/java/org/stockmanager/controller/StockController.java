@@ -9,7 +9,6 @@ import org.stockmanager.entity.Stock;
 import org.stockmanager.service.StockService;
 
 @RestController
-@RequestMapping("/stock")
 public class StockController {
 
     private final StockService stockService;
