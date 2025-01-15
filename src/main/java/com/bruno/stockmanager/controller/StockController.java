@@ -1,8 +1,8 @@
 package com.bruno.stockmanager.controller;
 
-import com.bruno.stockmanager.dto.StockDTO;
+import com.bruno.stockmanager.dto.AssetDTO;
 import com.bruno.stockmanager.entity.Asset;
-import com.bruno.stockmanager.service.StockService;
+import com.bruno.stockmanager.service.AssetService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/stock")
 public class StockController {
 
-    private final StockService stockService;
+    private final AssetService assetService;
 
-    public StockController(StockService stockService) {
-        this.stockService = stockService;
+    public StockController(AssetService assetService) {
+        this.assetService = assetService;
     }
 
     @PostMapping
-    public ResponseEntity<Asset> addStock(@Valid @RequestBody StockDTO stockDTO) {
-        Asset newAsset = stockService.addStock(stockDTO);
+    public ResponseEntity<Asset> addStock(@Valid @RequestBody AssetDTO stockDTO) {
+        Asset newAsset = assetService.createAsset(stockDTO, 1L);
         return ResponseEntity.status(HttpStatus.CREATED).body(newAsset);
     }
 }
