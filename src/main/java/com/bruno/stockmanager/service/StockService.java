@@ -1,7 +1,7 @@
 package com.bruno.stockmanager.service;
 
 import com.bruno.stockmanager.dto.StockDTO;
-import com.bruno.stockmanager.entity.Stock;
+import com.bruno.stockmanager.entity.Asset;
 import com.bruno.stockmanager.repository.StockRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,16 +13,16 @@ import org.springframework.stereotype.Service;
         this.stockRepository = stockRepository;
     }
 
-    public Stock addStock(StockDTO stockDTO) {
-        Stock stock = Stock.builder().build();
-        stock.setTicker(stockDTO.getTicker());
-        stock.setName(stockDTO.getName());
-        stock.setQuantity(stockDTO.getQuantity());
-        stock.setAveragePrice(stockDTO.getAveragePrice());
-        stock.setCurrency(stockDTO.getCurrency());
-        stock.setMarket(stockDTO.getMarket());
-        stock.setPurchaseDate(stockDTO.getPurchaseDate());
+    public Asset addStock(StockDTO stockDTO) {
+        Asset asset = Asset.builder().build();
+        asset.setTicker(stockDTO.getTicker());
+        asset.setName(stockDTO.getName());
+        asset.setQuantity(stockDTO.getQuantity());
+        asset.setAveragePrice(stockDTO.getAveragePrice());
+        asset.setCurrency(stockDTO.getCurrency());
+        asset.setMarket(stockDTO.getMarket());
+        asset.setPurchaseDate(stockDTO.getPurchaseDate());
 
-        return stockRepository.save(stock);
+        return stockRepository.save(asset);
     }
 }

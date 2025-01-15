@@ -8,37 +8,34 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "stock")
+@Table(name = "assets")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Stock {
-
+public class Asset {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 10)
+    @Column(nullable = false)
     private String ticker;
 
-    @Column(nullable = false, length = 100)
-    private String name;
-
     @Column(nullable = false)
-    private Integer quantity;
-
-    @Column(name = "average_price", nullable = false, precision = 15, scale = 2)
-    private BigDecimal averagePrice;
-
-    @Column(nullable = false, length = 3)
-    private String currency;
-
-    @Column(length = 50)
     private String market;
 
-    @Column(name = "purchase_date")
-    private LocalDate purchaseDate;
+    @Column(nullable = false)
+    private String currency;
+
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }
