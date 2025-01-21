@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -34,6 +33,9 @@ public class Asset {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    @Column(precision = 15, scale = 2)
+    private BigDecimal price;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)

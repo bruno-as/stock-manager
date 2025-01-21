@@ -1,9 +1,10 @@
 package com.bruno.stockmanager.entity;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "transactions")
@@ -40,6 +41,4 @@ public class Transaction {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
-
-    // Getters and Setters
 }
