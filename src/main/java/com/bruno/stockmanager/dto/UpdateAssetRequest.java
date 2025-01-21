@@ -1,5 +1,6 @@
 package com.bruno.stockmanager.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -14,4 +15,7 @@ public class UpdateAssetRequest {
     private String compositeFigi;
     private String shareFigi;
     private String lei;
+
+    @NotNull(message = "The userId is required.")
+    private Long userId; // Identificador do usuário
 }

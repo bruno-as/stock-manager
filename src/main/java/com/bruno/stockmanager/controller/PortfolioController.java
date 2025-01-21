@@ -2,6 +2,7 @@ package com.bruno.stockmanager.controller;
 
 import com.bruno.stockmanager.dto.UpdateAssetRequest;
 import com.bruno.stockmanager.service.PortfolioService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,7 @@ public class PortfolioController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Void> updatePortfolio(@RequestBody UpdateAssetRequest updateAssetRequest) {
+    public ResponseEntity<Void> updatePortfolio(@Valid @RequestBody UpdateAssetRequest updateAssetRequest) {
         portfolioService.updatePortfolioWithRealTimeData(updateAssetRequest);
         return ResponseEntity.noContent().build();
     }
