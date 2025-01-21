@@ -53,10 +53,8 @@ public class PortfolioService {
 
     @Transactional
     public void updatePortfolioWithRealTimeData(UpdateAssetRequest finazonRequest) {
-        // Busca dados da API
         FinazonResponse response = finazonClient.fetchAssetData(finazonRequest);
 
-        // Verifica se há dados retornados
         if (response.getFinazonAssetDataResponses() == null || response.getFinazonAssetDataResponses().isEmpty()) {
             throw new IllegalStateException("No asset data found from Finazon API");
         }

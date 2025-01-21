@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AssetService {
@@ -21,14 +20,9 @@ public class AssetService {
         this.userRepository = userRepository;
     }
 
-    public Asset createAsset(AssetDTO assetDTO, Long userId) {
-        Optional<User> userOptional = userRepository.findById(userId);
-
-        if (userOptional.isEmpty()) {
-            throw new IllegalArgumentException("User with ID " + userId + " not found.");
-        }
-
-        User user = userOptional.get();
+    public void createAsset(AssetDTO assetDTO) {
+        User user = userRepository.findById(assetDTO.getUserId())
+                .orElseThrow(() -> new IllegalArgumentException("User with ID " + assetDTO.getUserId() + " not found."));
 
         Asset asset = new Asset();
         asset.setTicker(assetDTO.getTicker());
@@ -38,7 +32,7 @@ public class AssetService {
         asset.setCreatedAt(LocalDateTime.now());
         asset.setUpdatedAt(LocalDateTime.now());
 
-        return assetRepository.save(asset);
+        assetRepository.save(asset);
     }
 
     public Asset getAssetById(Long assetId) {

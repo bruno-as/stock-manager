@@ -1,6 +1,7 @@
 package com.bruno.stockmanager.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,5 +23,8 @@ public class AssetDTO {
     @NotBlank(message = "The currency is required.")
     @Size(max = 3, message = "The currency must have a maximum of 3 characters.")
     private String currency;
+
+    @NotNull(message = "The userId is required.")
+    private Long userId;
 
 }
