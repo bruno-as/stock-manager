@@ -40,10 +40,6 @@ public class PortfolioService {
         for (Portfolio portfolio : portfolios) {
             BigDecimal assetValue = portfolio.getQuantity().multiply(portfolio.getAveragePrice());
 
-            if (!portfolio.getAsset().getCurrency().equalsIgnoreCase(currency)) {
-                assetValue = convertCurrency(assetValue, portfolio.getAsset().getCurrency(), currency);
-            }
-
             totalValue = totalValue.add(assetValue);
         }
 
@@ -61,7 +57,7 @@ public class PortfolioService {
 
         User user = userRepository.findById(updateAssetRequest.getUserId())
                 .orElseThrow(() -> new IllegalArgumentException("User with ID " + updateAssetRequest.getUserId() + " not found."));
-        
+
         FinazonResponse response = finazonClient.fetchAssetData(updateAssetRequest);
 
         response.getFinazonAssetDataResponses().stream()

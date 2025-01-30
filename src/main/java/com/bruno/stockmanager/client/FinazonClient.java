@@ -41,7 +41,7 @@ public class FinazonClient {
                 .queryParam("composite_figi", updateAssetRequest.getCompositeFigi())
                 .queryParam("share_figi", updateAssetRequest.getShareFigi())
                 .queryParam("lei", updateAssetRequest.getLei())
-                .queryParam("apikey", "18c8ce5abfa74fb38012a319f9971eec1a")
+                .queryParam("apikey", apiKey)
                 .build()
                 .toString();
 
