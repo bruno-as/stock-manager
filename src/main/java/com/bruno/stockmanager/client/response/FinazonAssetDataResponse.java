@@ -1,4 +1,4 @@
-package com.bruno.stockmanager.dto;
+package com.bruno.stockmanager.client.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

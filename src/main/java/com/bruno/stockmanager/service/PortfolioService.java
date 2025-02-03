@@ -2,8 +2,8 @@ package com.bruno.stockmanager.service;
 
 
 import com.bruno.stockmanager.client.FinazonClient;
-import com.bruno.stockmanager.dto.FinazonResponse;
-import com.bruno.stockmanager.dto.UpdateAssetRequest;
+import com.bruno.stockmanager.client.request.UpdateAssetRequest;
+import com.bruno.stockmanager.client.response.FinazonResponse;
 import com.bruno.stockmanager.entity.Portfolio;
 import com.bruno.stockmanager.entity.User;
 import com.bruno.stockmanager.repository.AssetRepository;
@@ -39,7 +39,6 @@ public class PortfolioService {
 
         for (Portfolio portfolio : portfolios) {
             BigDecimal assetValue = portfolio.getQuantity().multiply(portfolio.getAveragePrice());
-
             totalValue = totalValue.add(assetValue);
         }
 

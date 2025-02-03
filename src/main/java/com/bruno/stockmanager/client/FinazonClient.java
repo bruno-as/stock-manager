@@ -1,7 +1,7 @@
 package com.bruno.stockmanager.client;
 
-import com.bruno.stockmanager.dto.FinazonResponse;
-import com.bruno.stockmanager.dto.UpdateAssetRequest;
+import com.bruno.stockmanager.client.request.UpdateAssetRequest;
+import com.bruno.stockmanager.client.response.FinazonResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;

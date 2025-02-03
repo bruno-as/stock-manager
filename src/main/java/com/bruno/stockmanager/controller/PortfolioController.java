@@ -1,6 +1,6 @@
 package com.bruno.stockmanager.controller;
 
-import com.bruno.stockmanager.dto.UpdateAssetRequest;
+import com.bruno.stockmanager.client.request.UpdateAssetRequest;
 import com.bruno.stockmanager.service.PortfolioService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

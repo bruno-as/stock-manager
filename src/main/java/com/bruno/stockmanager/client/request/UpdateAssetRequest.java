@@ -1,4 +1,4 @@
-package com.bruno.stockmanager.dto;
+package com.bruno.stockmanager.client.request;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -17,5 +17,5 @@ public class UpdateAssetRequest {
     private String lei;
 
     @NotNull(message = "The userId is required.")
-    private Long userId; // Identificador do usuário
+    private Long userId;
 }
