@@ -44,12 +44,7 @@ public class PortfolioService {
 
         return String.format("Total portfolio value in %s: %.2f", currency, totalValue);
     }
-
-    private BigDecimal convertCurrency(BigDecimal amount, String fromCurrency, String toCurrency) {
-        // TODO: Implementar lógica para buscar a taxa de câmbio atual
-        // Por enquanto, assume taxa de conversão 1:1 como exemplo
-        return amount;
-    }
+    
 
     @Transactional
     public void updatePortfolioWithRealTimeData(UpdateAssetRequest updateAssetRequest) {
